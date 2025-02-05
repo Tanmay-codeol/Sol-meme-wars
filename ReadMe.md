@@ -10,7 +10,7 @@ Solana Meme Wars is a decentralized application (dApp) built on the Solana block
 
 # SNEEK PEEK
 
-![Image]()
+![Image](https://github.com/Tanmay-codeol/Sol-meme-wars/blob/main/sol-meme-wars-Interface/assest/Solana%20Meme%20War%20-%20Google%20Chrome%202_5_2025%2011_54_58%20AM.png)
 
 ## Usage
 
