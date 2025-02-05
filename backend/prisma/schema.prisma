@@ -1,0 +1,89 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model Post {
+    id           Int           @id @default(autoincrement())
+    nftMint      String
+    tokenAccount String
+    creator      String // Creator's walletAddress
+    title        String
+    description  String?
+    imageUrl     String
+    isForSale    Boolean
+    price        Float?
+    createdAt    DateTime      @default(now())
+    updatedAt    DateTime      @updatedAt
+    status       String // "active" | "sold" | "removed"
+    metadata     Json
+    upvotes      Int           @default(0) // Count of upvotes
+    downvotes    Int           @default(0) // Count of downvotes
+    comments     Comment[] // Relation to comments
+    votes        Vote[] // Relation to votes (upvote/downvote)
+    transactions Transaction[] // Relation to transactions
+
+    // Relation to User using creator walletAddress
+    User User @relation(fields: [creator], references: [walletAddress])
+
+    @@unique([nftMint, creator])
+    @@index([creator, nftMint]) // Index for faster lookups
+}
+
+model User {
+    id            Int       @id @default(autoincrement())
+    walletAddress String    @unique
+    username      String?
+    totalPosts    Int       @default(0)
+    totalSales    Int       @default(0)
+    createdAt     DateTime  @default(now())
+    profileImage  String?
+    lastActive    DateTime
+    comments      Comment[] // Relation to comments made by the user
+    posts         Post[] // Relation to posts created by the user
+    votes         Vote[] // Relation to votes made by the user
+}
+
+model Transaction {
+    id          Int       @id @default(autoincrement())
+    postId      Int
+    nftMint     String
+    seller      String
+    buyer       String
+    price       Float
+    platformFee Float
+    signature   String    @unique
+    status      String // "pending" | "completed" | "failed"
+    createdAt   DateTime  @default(now())
+    completedAt DateTime?
+
+    Post Post @relation(fields: [postId], references: [id])
+}
+
+model Comment {
+    id        Int      @id @default(autoincrement())
+    postId    Int
+    userId    Int
+    content   String // The content of the comment
+    createdAt DateTime @default(now())
+
+    Post Post @relation(fields: [postId], references: [id])
+    User User @relation(fields: [userId], references: [id])
+}
+
+model Vote {
+    id        Int      @id @default(autoincrement())
+    postId    Int
+    userId    Int
+    type      String // "upvote" or "downvote"
+    createdAt DateTime @default(now())
+
+    Post Post @relation(fields: [postId], references: [id])
+    User User @relation(fields: [userId], references: [id])
+
+    @@unique([postId, userId]) // Ensure a user can only vote once per post
+}

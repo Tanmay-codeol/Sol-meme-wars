@@ -1,0 +1,240 @@
+body{
+  background-color: #090A0A;
+  overflow-x: hidden !important;
+}
+
+#root {
+ /*  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 auto;  */
+}
+
+.containers {
+  max-width: 1260px;
+  /* padding: 0 1rem; */
+  padding-bottom: 5rem;
+  margin: 0 auto;
+}
+
+@font-face {
+  font-family: 'CPMono-Head';
+  src: url('/public/fonts/CPMono_v07_Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CPMono-normal';
+  src: url('/public/fonts/CPMono_v07_Light.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+}
+
+
+/* Add other variants as needed */
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.stretch{
+  flex: 1 1 1000%;
+    place-self: stretch;
+}
+
+.neon-green {
+  color: #92F7CB;
+  text-shadow: 0 0 2px #92F7CB, 0 0 1px #92F7CB, 0 0 5px #92F7CB, 0 0 4px #92F7CB;
+}
+.neon-pink {
+  color: #FF8AAD;
+  text-shadow: 0 0 1px #FF8AAD, 0 0 1px #FF8AAD, 0 0 1px #FF8AAD, 0 0 2px #FF8AAD;
+}
+.neon-pink-star {
+  color: #FF8AAD;
+  text-shadow: 0 0 1px #FF8AAD, 0 0 1px #FF8AAD, 0 0 2px #FF8AAD, 0 0 5px #FF8AAD;
+}
+
+.neon-green-nft {
+  color: #8EEFC6;
+  text-shadow:  1px 1px 10px rgba(0, 255, 144, 0.60);
+}
+.neon-pink-nft {
+  color: #EF8EAB;
+  text-shadow: 2px 1px 12px rgba(255, 0, 77, 0.80);
+}
+
+.neon-text{
+  color: #6CE9A6;
+  leading-trim: both; /* Note: This is not yet supported in CSS */
+  text-edge: cap; /* Note: This is not yet supported in CSS */
+  text-shadow: 0px 0px 16px #A6F4C5; 
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 307; /* Note: Use the closest valid value (100, 200, 300, etc.) */
+  line-height: 21px; /* 116.667% */
+  text-transform: uppercase;
+}
+
+.nav-text{
+  cursor: pointer;
+  transition: all;
+  transition-duration: 0.3s;
+}
+
+.nav-text:hover{
+  cursor: pointer;
+  color: #B2FFD6;
+  text-shadow:  0px 0px 10px rgba(166, 244, 197, 0.60);; 
+}
+
+/* Neon effect for minting, listed and Mcap */
+
+.neon-minted{
+  color: #5d9eff;
+  text-shadow: 0px 0px 0px #5d9eff, 0px 0px 40px #5d9eff, 0 0 1px #5d9eff, 0 0 10px #5d9eff;
+}
+
+.neon-listed{
+  color: #ff69b4;
+  text-shadow: 0px 0px 0px #ff69b4, 0px 0px 40px #ff69b4, 0 0 1px #ff69b4, 0 0 10px #ff69b4;
+}
+
+.neon-mcap{
+  color: #a855f7;
+  text-shadow: 0px 0px 0px #a855f7, 0px 0px 40px #a855f7, 0 0 1px #a855f7, 0 0 10px #a855f7;
+}
+
+/* Neon effect for upvotes and downvotes */
+
+.neon-upvote{
+  color: #92F7CB;
+  text-shadow: 0 0 12px #92F7CB, 0 0 11px #92F7CB, 0 0 17px #92F7CB, 0 0 34px #92F7CB;
+}
+.neon-downVote {
+  color: #FF8AAD;
+  text-shadow: 0 0 1px #FF8AAD, 0 0 1px #FF8AAD, 0 0 1px #FF8AAD, 0 0 2px #FF8AAD;
+}
+ 
+.border-box {
+  position: relative;
+  /* padding: 20px; Adjust padding as needed */
+  background-color: #222; /* Inner background color */
+  color: white; /* Text color */
+  border-radius: 8px;
+  /* overflow: hidden; */
+}
+
+.border-box::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border: 1px solid orange; 
+  border-radius: 10px; /* Slightly larger than the inner radius */
+  pointer-events: none;
+}
+
+.gradient-border {
+
+  border-width: 5px;
+
+  border-style: solid;
+
+  border-image: linear-gradient(to right, red, blue) 1;
+
+}
+
+
+.nft-card {
+  background-color: #090A0A; 
+  background-image: linear-gradient(to top right, #000000 59.5%, #383737 93%);
+  display: inline-block;  
+  /* transition: background-image 0.5s ease; */
+  /* transition: opacity 0.5s; */
+  /* opacity: 0.7; */
+  transition: opacity 0.5s ease;
+}
+
+.nft-card-img {
+  background-color: #090A0A; 
+  background-image: linear-gradient(to top, #101111 54%, #383737 83%);
+  /* transition: opacity 0.5s; */
+  /* opacity: 0.7; */
+  transition: opacity 0.5s ease;
+  /* transition: background-image 0.5s ease;  */
+}
+
+.nft-card-img-left {
+  background-color: #090A0A;
+  background-image: linear-gradient(to bottom left, #101111 20%, #383737 9%);
+  /* transition: opacity 0.5s; */
+  /* opacity: 0.7; */
+  transition: opacity 0.5s ease;
+  /* transition: background-image 0.5s ease; */
+}
+
+/* Hover effects */
+.nft-card:hover {
+  background-image: linear-gradient(to top right, #000000 59.5%, rgba(255, 166, 0, 0.685) 93%);
+  opacity: 1;
+}
+
+/* Change other classes when hovering over nft-card */
+.nft-card:hover .nft-card-img {
+  background-image: linear-gradient(to top, #101111 54%, #ffa600af 83%);
+  opacity: 1;
+  /* transition: opacity 0.5s;
+  transition: background-image 1s ease; */
+}
+
+.nft-card:hover .nft-card-img-left {
+  background-image: linear-gradient(to bottom left, #101111 20%, rgba(255, 166, 0, 0.685) 9%);
+  opacity: 1;
+  /* transition: opacity 0.5s;
+  transition: background-image 1s ease; */
+}
+/* for chrome  */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* for firebox  */
+.no-scrollbar {
+  -ms-overflow-y-scroll: none;
+  scrollbar-width: none;
+}

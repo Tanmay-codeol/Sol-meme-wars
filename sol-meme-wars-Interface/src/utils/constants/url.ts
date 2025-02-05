@@ -1,0 +1,1 @@
+export const BACKENDURL =  "https://solana-meme-wars-backend.vercel.app"
